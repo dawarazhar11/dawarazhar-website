@@ -45,14 +45,26 @@ export default async function RootLayout({
     redirect('/coming-soon')
   }
 
+  // Check if we're on the coming-soon page (hide header/footer)
+  const isComingSoon = pathname === '/coming-soon'
+  // Check if we're on admin pages (admin has its own layout)
+  const isAdminPage = pathname.startsWith('/admin')
+
+  // Hide header/footer on coming-soon page and admin pages
+  const showHeaderFooter = !isComingSoon && !isAdminPage
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
-        <div className="relative flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        {showHeaderFooter ? (
+          <div className="relative flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        ) : (
+          <>{children}</>
+        )}
       </body>
     </html>
   );

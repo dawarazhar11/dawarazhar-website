@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-// Paths that should always be accessible during maintenance
-const ALLOWED_PATHS = [
+// Paths that should always be accessible (even during maintenance)
+const ALWAYS_ALLOWED_PATHS = [
   '/admin',
   '/api',
   '/coming-soon',
@@ -15,7 +15,7 @@ const ALLOWED_PATHS = [
 
 // Check if path starts with any allowed prefix
 function isAllowedPath(pathname: string): boolean {
-  return ALLOWED_PATHS.some(path => pathname.startsWith(path))
+  return ALWAYS_ALLOWED_PATHS.some(p => pathname.startsWith(p))
 }
 
 export async function middleware(request: NextRequest) {
@@ -25,9 +25,25 @@ export async function middleware(request: NextRequest) {
   const response = NextResponse.next()
   response.headers.set('x-pathname', pathname)
 
-  // Skip if path is allowed
+  // Skip if path is always allowed
   if (isAllowedPath(pathname)) {
     return response
+  }
+
+  // Check maintenance mode via internal API (Edge-compatible)
+  try {
+    const maintenanceCheckUrl = new URL('/api/maintenance', request.url)
+    const maintenanceResponse = await fetch(maintenanceCheckUrl)
+    const data = await maintenanceResponse.json()
+
+    if (data.enabled) {
+      const url = request.nextUrl.clone()
+      url.pathname = '/coming-soon'
+      return NextResponse.redirect(url)
+    }
+  } catch (error) {
+    // If check fails, allow through to avoid blocking site
+    console.error('[Middleware] Maintenance check failed:', error)
   }
 
   return response
