@@ -41,7 +41,9 @@
       "Bash(npx shadcn@latest:*)",
       "Bash(git init:*)",
       "Bash(git branch:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo create:*)"
     ],
     "deny": [],
     "ask": [],

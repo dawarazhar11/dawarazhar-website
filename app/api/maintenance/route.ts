@@ -2,9 +2,26 @@ import { NextRequest, NextResponse } from 'next/server'
 import { isAuthenticated } from '@/lib/auth'
 import { getMaintenanceConfig, saveMaintenanceConfig } from '@/lib/maintenance'
 
-export async function GET() {
+// Force dynamic rendering - no caching
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
+export async function GET(request: NextRequest) {
   try {
+    // Check for debug mode
+    const url = new URL(request.url)
+    const debug = url.searchParams.get('debug')
+
     const config = getMaintenanceConfig()
+
+    if (debug === 'true') {
+      return NextResponse.json({
+        config,
+        cwd: process.cwd(),
+        configPath: `${process.cwd()}/config/maintenance.json`
+      })
+    }
+
     return NextResponse.json(config)
   } catch (error) {
     console.error('Error getting maintenance config:', error)

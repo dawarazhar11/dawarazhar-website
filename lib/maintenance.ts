@@ -12,7 +12,12 @@ export interface MaintenanceConfig {
   allowedPaths: string[]
 }
 
-const configPath = path.join(process.cwd(), 'config', 'maintenance.json')
+// Use absolute path to avoid cwd issues in production
+const getConfigPath = () => {
+  // In production, use the app directory
+  const cwd = process.cwd()
+  return path.join(cwd, 'config', 'maintenance.json')
+}
 
 const defaultConfig: MaintenanceConfig = {
   enabled: false,
@@ -26,6 +31,7 @@ const defaultConfig: MaintenanceConfig = {
 }
 
 function ensureConfigDir() {
+  const configPath = getConfigPath()
   const configDir = path.dirname(configPath)
   if (!fs.existsSync(configDir)) {
     fs.mkdirSync(configDir, { recursive: true })
@@ -34,11 +40,19 @@ function ensureConfigDir() {
 
 export function getMaintenanceConfig(): MaintenanceConfig {
   try {
+    const configPath = getConfigPath()
     ensureConfigDir()
+
+    // Force fresh read by using openSync with close
     if (fs.existsSync(configPath)) {
-      const content = fs.readFileSync(configPath, 'utf-8')
-      return { ...defaultConfig, ...JSON.parse(content) }
+      // Clear any potential stat cache
+      fs.statSync(configPath)
+      const content = fs.readFileSync(configPath, { encoding: 'utf-8', flag: 'r' })
+      const parsed = JSON.parse(content)
+      console.log('[Maintenance] Read config from:', configPath, 'enabled:', parsed.enabled)
+      return { ...defaultConfig, ...parsed }
     }
+    console.log('[Maintenance] Config file not found at:', configPath)
     return defaultConfig
   } catch (error) {
     console.error('Error reading maintenance config:', error)
@@ -48,6 +62,7 @@ export function getMaintenanceConfig(): MaintenanceConfig {
 
 export function saveMaintenanceConfig(config: Partial<MaintenanceConfig>): boolean {
   try {
+    const configPath = getConfigPath()
     ensureConfigDir()
     const currentConfig = getMaintenanceConfig()
     const newConfig = { ...currentConfig, ...config }

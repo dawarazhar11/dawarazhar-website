@@ -8,6 +8,9 @@ const ALLOWED_PATHS = [
   '/coming-soon',
   '/_next',
   '/favicon.ico',
+  '/images',
+  '/robots.txt',
+  '/sitemap.xml',
 ]
 
 // Check if path starts with any allowed prefix
@@ -18,37 +21,16 @@ function isAllowedPath(pathname: string): boolean {
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  // Add the pathname to headers for server components to use
+  const response = NextResponse.next()
+  response.headers.set('x-pathname', pathname)
+
   // Skip if path is allowed
   if (isAllowedPath(pathname)) {
-    return NextResponse.next()
+    return response
   }
 
-  // Check maintenance mode via API (this is an internal call)
-  try {
-    const baseUrl = request.nextUrl.origin
-    const response = await fetch(`${baseUrl}/api/maintenance`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // Use next: { revalidate: 10 } to cache for 10 seconds
-      next: { revalidate: 10 }
-    })
-
-    if (response.ok) {
-      const config = await response.json()
-
-      if (config.enabled) {
-        // Redirect to coming soon page
-        return NextResponse.redirect(new URL('/coming-soon', request.url))
-      }
-    }
-  } catch (error) {
-    // If there's an error checking maintenance mode, allow the request
-    console.error('Error checking maintenance mode:', error)
-  }
-
-  return NextResponse.next()
+  return response
 }
 
 export const config = {

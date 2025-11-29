@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { getMaintenanceConfig } from "@/lib/maintenance";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,11 +14,37 @@ export const metadata: Metadata = {
   description: "Notes on engineering, web development, and experiments",
 };
 
-export default function RootLayout({
+// Force dynamic rendering to check maintenance mode on each request
+export const dynamic = 'force-dynamic'
+
+// Paths that should not be redirected
+const ALLOWED_PATHS = [
+  '/admin',
+  '/coming-soon',
+  '/api',
+]
+
+function isAllowedPath(pathname: string): boolean {
+  return ALLOWED_PATHS.some(path => pathname.startsWith(path))
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Get the current path from headers
+  const headersList = await headers()
+  const pathname = headersList.get('x-pathname') || headersList.get('x-invoke-path') || '/'
+
+  // Check maintenance mode
+  const maintenanceConfig = getMaintenanceConfig()
+
+  // Redirect to coming-soon if maintenance is enabled and path is not allowed
+  if (maintenanceConfig.enabled && !isAllowedPath(pathname)) {
+    redirect('/coming-soon')
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
