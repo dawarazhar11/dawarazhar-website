@@ -20,15 +20,15 @@ export function PostsContent({ posts }: PostsContentProps) {
   }, [])
 
   return (
-    <div className="container py-10">
-      <motion.div 
-        className="space-y-4 pb-8"
+    <div className="container px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <motion.div
+        className="space-y-3 sm:space-y-4 pb-6 sm:pb-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <motion.h1 
-          className="text-4xl font-bold tracking-tight"
+        <motion.h1
+          className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -44,7 +44,7 @@ export function PostsContent({ posts }: PostsContentProps) {
           Exploring engineering, technology, and software development
         </motion.p>
       </motion.div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post, index) => (
           <motion.div
             key={post.slug}

@@ -1,9 +1,10 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { formatDate } from "@/lib/utils"
 import { Post } from "@/types/post"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Edit } from "lucide-react"
+import { ArrowRight, Edit, FileText } from "lucide-react"
 
 interface PostCardProps {
   post: Post
@@ -11,17 +12,24 @@ interface PostCardProps {
 }
 
 export function PostCard({ post, showEdit = false }: PostCardProps) {
+  const hasValidImage = post.image && !post.image.startsWith('data:') && post.image.length < 500
+
   return (
     <Card className="h-full flex flex-col hover:shadow-lg transition-shadow overflow-hidden">
-      {post.image && (
-        <Link href={`/posts/${post.slug}`} className="relative h-48 overflow-hidden bg-muted">
-          <img 
-            src={post.image} 
+      <Link href={`/posts/${post.slug}`} className="relative h-40 sm:h-48 overflow-hidden bg-muted flex items-center justify-center">
+        {hasValidImage ? (
+          <img
+            src={post.image}
             alt={post.title}
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           />
-        </Link>
-      )}
+        ) : (
+          <div className="flex flex-col items-center justify-center text-muted-foreground">
+            <FileText className="h-12 w-12 mb-2" />
+            <span className="text-xs">Engineering Blog Post</span>
+          </div>
+        )}
+      </Link>
       <CardHeader>
         <CardTitle className="line-clamp-2">
           <Link href={`/posts/${post.slug}`} className="hover:underline">

@@ -13,10 +13,10 @@ interface HomeContentProps {
 
 export function HomeContent({ posts }: HomeContentProps) {
   return (
-    <div className="container py-10">
-      <section className="mx-auto max-w-[980px] space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
-        <motion.div 
-          className="flex max-w-[980px] flex-col items-start gap-4"
+    <div className="container px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <section className="mx-auto max-w-[980px] space-y-6 pb-6 pt-4 md:pb-12 md:pt-10 lg:py-32">
+        <motion.div
+          className="flex max-w-[980px] flex-col items-start gap-3 sm:gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -33,8 +33,8 @@ export function HomeContent({ posts }: HomeContentProps) {
             </span>
             Open to new projects
           </motion.div>
-          <motion.h1 
-            className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]"
+          <motion.h1
+            className="text-2xl sm:text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -42,8 +42,8 @@ export function HomeContent({ posts }: HomeContentProps) {
             Engineering Solutions Through
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Innovation</span>
           </motion.h1>
-          <motion.p 
-            className="max-w-[750px] text-lg text-muted-foreground sm:text-xl"
+          <motion.p
+            className="max-w-[750px] text-base text-muted-foreground sm:text-lg md:text-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -53,8 +53,8 @@ export function HomeContent({ posts }: HomeContentProps) {
             to enable next-generation grid infrastructure. Co-inventor of the world's first multi-port SST.
           </motion.p>
         </motion.div>
-        <motion.div 
-          className="flex flex-wrap gap-4"
+        <motion.div
+          className="flex flex-wrap gap-3 sm:gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
@@ -122,7 +122,7 @@ export function HomeContent({ posts }: HomeContentProps) {
             </Button>
           </motion.div>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => (
             <motion.div
               key={post.slug}
