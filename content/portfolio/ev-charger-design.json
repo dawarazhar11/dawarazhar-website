@@ -1,0 +1,29 @@
+{
+  "id": "proj-004",
+  "slug": "ev-charger-design",
+  "title": "350kW DC Fast Charger",
+  "description": "Complete mechanical and electrical design of a 350kW DC fast charging station for electric vehicles.",
+  "category": "MV Power Systems",
+  "coverImage": "",
+  "images": [],
+  "fullDescription": "This project encompassed the full development cycle of a 350kW DC fast charging station, from initial concept through to production-ready design. The charger supports both CCS and CHAdeMO standards with liquid-cooled cables.\n\n## System Architecture\n\n### Power Conversion\n- Three-phase Vienna rectifier front-end\n- Interleaved LLC resonant converter\n- Wide output voltage range: 200-1000V DC\n\n### Mechanical Design\n- IP54-rated outdoor enclosure\n- Forced air cooling with redundant fans\n- Cable management system\n- User interface with 15\" touchscreen\n\n## Safety and Compliance\n\nThe design meets all relevant standards including:\n- IEC 61851-23 (DC charging)\n- UL 2202 (EV charging equipment)\n- ISO 15118 (V2G communication)\n\n## Production Engineering\n\nDesign for manufacturing (DFM) principles were applied throughout, resulting in a modular architecture that simplifies assembly and enables field serviceability.",
+  "technologies": ["Vienna Rectifier", "LLC Converter", "CCS/CHAdeMO", "SolidWorks", "Sheet Metal Design", "DFM", "ISO 15118"],
+  "highlights": [
+    "350kW peak charging power",
+    "94% overall efficiency",
+    "15-minute charge to 80% (typical EV)",
+    "V2G ready architecture",
+    "Modular power stack design"
+  ],
+  "githubUrl": "",
+  "liveUrl": "",
+  "documentationUrl": "",
+  "year": "2023",
+  "client": "EV Infrastructure Company",
+  "duration": "14 months",
+  "role": "Senior Design Engineer",
+  "featured": true,
+  "order": 4,
+  "publishDate": "2023-09-05",
+  "draft": false
+}

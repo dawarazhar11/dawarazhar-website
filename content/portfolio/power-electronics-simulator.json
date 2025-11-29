@@ -1,0 +1,29 @@
+{
+  "id": "proj-006",
+  "slug": "power-electronics-simulator",
+  "title": "Real-Time Power Electronics Simulator",
+  "description": "Web-based simulation platform for power converter design with real-time visualization and component sizing tools.",
+  "category": "Engineering Software",
+  "coverImage": "",
+  "images": [],
+  "fullDescription": "This software project developed an interactive web-based platform for power electronics design and simulation. The tool enables engineers to quickly prototype converter topologies and visualize waveforms in real-time.\n\n## Features\n\n### Topology Library\n- Buck, Boost, Buck-Boost converters\n- Full-bridge and half-bridge configurations\n- DAB and LLC resonant converters\n- Three-phase inverters\n\n### Design Tools\n- Automated component sizing\n- Loss calculation and efficiency estimation\n- Thermal derating analysis\n- Magnetics design wizard\n\n### Visualization\n- Real-time waveform plotting\n- FFT analysis for harmonic content\n- Bode plot generation\n- Interactive parameter sweeps\n\n## Technology Stack\n\nBuilt with modern web technologies:\n- React frontend with TypeScript\n- WebGL-accelerated plotting\n- Web Workers for simulation engine\n- Cloud-based storage for projects",
+  "technologies": ["React", "TypeScript", "WebGL", "Python", "FastAPI", "NumPy", "Control Theory"],
+  "highlights": [
+    "Real-time simulation at 1us timestep",
+    "50+ pre-built converter topologies",
+    "Automatic component recommendations",
+    "Export to PLECS/LTspice",
+    "Collaborative design sharing"
+  ],
+  "githubUrl": "https://github.com/dawarazhar11/pe-simulator",
+  "liveUrl": "",
+  "documentationUrl": "",
+  "year": "2024",
+  "client": "Open Source Project",
+  "duration": "Ongoing",
+  "role": "Lead Developer",
+  "featured": true,
+  "order": 6,
+  "publishDate": "2024-10-01",
+  "draft": false
+}

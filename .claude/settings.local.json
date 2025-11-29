@@ -1,0 +1,52 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(curl:*)",
+      "Bash(cd:*)",
+      "Bash(cd:*)",
+      "Bash(cd:*)",
+      "Bash(cd:*)",
+      "Bash(cd:*)",
+      "WebFetch(domain:www.linkedin.com)",
+      "Bash(cd:*)",
+      "Bash(npm run dev:*)",
+      "mcp__playwright-mcp__browser_navigate",
+      "mcp__playwright-mcp__browser_wait_for",
+      "mcp__playwright-mcp__browser_console_messages",
+      "mcp__playwright-mcp__browser_type",
+      "mcp__playwright-mcp__browser_click",
+      "Bash(chmod:*)",
+      "Bash(npm run build:*)",
+      "Bash(./setup-server.sh:*)",
+      "Bash(./setup-server-with-password.sh:*)",
+      "Bash(cat:*)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:www.dgmatrix.com)",
+      "Bash(cd /Users/dawarazhar/Desktop/Dawar\\ Blog/radix-blog-app && npx shadcn@latest add dialog input label -y:*)",
+      "Bash(brew install:*)",
+      "Bash(tar:*)",
+      "Bash(sshpass -p '7MCz3G34yg8aBVrs1Q' scp -o StrictHostKeyChecking=no deploy.tar.gz root@107.152.41.24:/tmp/)",
+      "Bash(ssh-keygen:*)",
+      "Bash(sshpass -p '7MCz3G34yg8aBVrs1Q' ssh -o StrictHostKeyChecking=accept-new root@107.152.41.24 \"which nginx || apt-get install -y nginx\")",
+      "Bash(sshpass -p '7MCz3G34yg8aBVrs1Q' ssh root@107.152.41.24 \"systemctl stop apache2 && systemctl disable apache2 && systemctl start nginx && systemctl enable nginx\")",
+      "Bash(sshpass -p '7MCz3G34yg8aBVrs1Q' scp \"/Users/dawarazhar/Desktop/Dawar Blog/radix-blog-app/nginx.conf\" root@107.152.41.24:/etc/nginx/sites-available/dawarazhar.com)",
+      "Bash(sshpass -p '7MCz3G34yg8aBVrs1Q' ssh root@107.152.41.24 \"rm -f /etc/nginx/sites-enabled/default && ln -sf /etc/nginx/sites-available/dawarazhar.com /etc/nginx/sites-enabled/ && nginx -t && systemctl reload nginx\")",
+      "Bash(sshpass -p '7MCz3G34yg8aBVrs1Q' ssh root@107.152.41.24 \"apt-get install -y certbot python3-certbot-nginx\")",
+      "Bash(sshpass -p '7MCz3G34yg8aBVrs1Q' ssh root@107.152.41.24 \"certbot --nginx -d dawarazhar.com -d www.dawarazhar.com --email mdawar.azhar@gmail.com --agree-tos --non-interactive --redirect\")",
+      "Bash(sshpass -p '7MCz3G34yg8aBVrs1Q' ssh root@107.152.41.24 \"pm2 status && curl -I http://127.0.0.1:3000 2>/dev/null | head -5\")",
+      "Bash(sshpass -p '7MCz3G34yg8aBVrs1Q' ssh root@107.152.41.24 \"pm2 logs dawarazhar-blog --lines 50 --nostream\")",
+      "Bash(sshpass -p '7MCz3G34yg8aBVrs1Q' ssh root@107.152.41.24 \"cd /var/www/dawarazhar.com && ls -la next.config.*\")",
+      "Bash(sshpass:*)",
+      "Bash(npx shadcn@latest:*)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "additionalDirectories": [
+      "/Users/dawarazhar/Desktop"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "proj-005",
+  "slug": "gate-driver-design",
+  "title": "Isolated Gate Driver for SiC MOSFETs",
+  "description": "High-performance isolated gate driver design optimized for 1700V SiC MOSFETs with advanced protection features.",
+  "category": "MV Power Systems",
+  "coverImage": "",
+  "images": [],
+  "fullDescription": "Gate driver design is critical for achieving optimal performance from wide-bandgap semiconductors. This project developed a high-performance isolated gate driver specifically optimized for 1700V SiC MOSFETs in medium voltage applications.\n\n## Design Features\n\n### Isolation\n- Reinforced isolation rated for 5kVrms working voltage\n- Common-mode transient immunity > 100kV/us\n- Isolated DC-DC power supply with 1W output\n\n### Protection\n- Desaturation detection with < 1us response time\n- Active Miller clamping\n- Under-voltage lockout (UVLO)\n- Soft turn-off for fault conditions\n\n### Performance\n- Peak source/sink current: +15A/-20A\n- Propagation delay < 50ns\n- Pulse width distortion < 5ns\n\n## PCB Design\n\nThe 4-layer PCB design emphasizes:\n- Minimized gate loop inductance\n- Proper creepage/clearance distances\n- Thermal management for driver ICs",
+  "technologies": ["SiC MOSFETs", "Isolated Gate Drivers", "Altium Designer", "EMC Design", "High-Speed PCB", "Signal Integrity"],
+  "highlights": [
+    "100kV/us CMTI rating",
+    "Sub-50ns propagation delay",
+    "Integrated desat protection",
+    "Compact 40x30mm form factor"
+  ],
+  "githubUrl": "",
+  "liveUrl": "",
+  "documentationUrl": "",
+  "year": "2024",
+  "client": "Power Electronics Lab",
+  "duration": "6 months",
+  "role": "Hardware Design Engineer",
+  "featured": false,
+  "order": 5,
+  "publishDate": "2024-03-12",
+  "draft": false
+}

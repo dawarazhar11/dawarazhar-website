@@ -1,0 +1,28 @@
+{
+  "id": "proj-001",
+  "slug": "mv-power-converter",
+  "title": "Medium Voltage Power Converter",
+  "description": "Design and development of a 10kV SiC-based modular multilevel converter for industrial applications with 98.5% efficiency.",
+  "category": "MV Power Systems",
+  "coverImage": "",
+  "images": [],
+  "fullDescription": "This project involved the complete design, simulation, and prototyping of a medium voltage power converter utilizing Silicon Carbide (SiC) MOSFETs in a modular multilevel configuration. The converter achieves industry-leading efficiency of 98.5% while maintaining compact form factor through advanced thermal management.\n\n## Key Features\n\n- 10kV input/output voltage rating\n- 1MW power handling capability\n- SiC MOSFET-based switching cells\n- Advanced gate driver design with galvanic isolation\n- Real-time FPGA-based control system\n- Comprehensive protection schemes\n\n## Technical Approach\n\nThe modular multilevel converter (MMC) topology was selected for its scalability and inherent redundancy. Each submodule contains a half-bridge configuration with SiC MOSFETs, enabling high switching frequencies while minimizing losses.\n\nThe control system implements model predictive control (MPC) for optimal switching decisions, resulting in reduced harmonic distortion and improved dynamic response.",
+  "technologies": ["SiC MOSFETs", "FPGA", "MATLAB/Simulink", "PLECS", "Altium Designer", "Model Predictive Control", "Thermal Analysis"],
+  "highlights": [
+    "98.5% peak efficiency achieved",
+    "50% volume reduction compared to Si-based alternatives",
+    "THD < 3% at full load",
+    "Modular design for easy maintenance and scalability"
+  ],
+  "githubUrl": "",
+  "liveUrl": "",
+  "documentationUrl": "",
+  "year": "2024",
+  "client": "Industrial Research Project",
+  "duration": "12 months",
+  "role": "Lead Power Electronics Engineer",
+  "featured": true,
+  "order": 1,
+  "publishDate": "2024-06-15",
+  "draft": false
+}

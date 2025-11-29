@@ -1,0 +1,28 @@
+{
+  "id": "proj-003",
+  "slug": "thermal-management-system",
+  "title": "Advanced Thermal Management for Power Electronics",
+  "description": "Design of an integrated liquid cooling system for high-power-density converters achieving 200W/cm2 heat dissipation.",
+  "category": "Thermal Management",
+  "coverImage": "",
+  "images": [],
+  "fullDescription": "Thermal management is critical for achieving high power density in modern power electronics. This project developed an advanced liquid cooling solution capable of dissipating heat fluxes up to 200W/cm2 while maintaining junction temperatures within safe operating limits.\n\n## Design Approach\n\n### CFD-Driven Optimization\nExtensive computational fluid dynamics (CFD) simulations were performed to optimize the cold plate geometry, including:\n- Microchannel configurations\n- Pin-fin arrays\n- Jet impingement zones\n\n### Thermal Interface Materials\nEvaluation and selection of high-performance TIMs achieving thermal conductivity > 5 W/mK with minimal bond line thickness.\n\n## Manufacturing\n\nThe cold plates were manufactured using selective laser melting (SLM) allowing complex internal geometries impossible with conventional machining. This additive manufacturing approach enabled:\n- Conformal cooling channels\n- Integrated manifolds\n- Reduced assembly complexity",
+  "technologies": ["CFD Simulation", "ANSYS Fluent", "SolidWorks", "3D Printing", "SLM Manufacturing", "Thermal Interface Materials", "FEA"],
+  "highlights": [
+    "200W/cm2 heat dissipation capability",
+    "Junction temperature < 125°C at full load",
+    "40% improvement over baseline design",
+    "Integrated pump and reservoir design"
+  ],
+  "githubUrl": "",
+  "liveUrl": "",
+  "documentationUrl": "",
+  "year": "2023",
+  "client": "Internal R&D Project",
+  "duration": "8 months",
+  "role": "Thermal Design Engineer",
+  "featured": false,
+  "order": 3,
+  "publishDate": "2023-11-10",
+  "draft": false
+}

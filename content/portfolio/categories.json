@@ -1,0 +1,8 @@
+[
+  { "id": "1", "name": "Solid-State Transformers", "slug": "sst", "order": 1 },
+  { "id": "2", "name": "MV Power Systems", "slug": "mv-systems", "order": 2 },
+  { "id": "3", "name": "Thermal Management", "slug": "thermal", "order": 3 },
+  { "id": "4", "name": "Mechanical Design", "slug": "mechanical", "order": 4 },
+  { "id": "5", "name": "Engineering Software", "slug": "software", "order": 5 },
+  { "id": "6", "name": "AI/ML", "slug": "ai-ml", "order": 6 }
+]

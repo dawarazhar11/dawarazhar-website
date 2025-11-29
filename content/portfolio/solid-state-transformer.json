@@ -1,0 +1,29 @@
+{
+  "id": "proj-002",
+  "slug": "solid-state-transformer",
+  "title": "Solid-State Transformer for Grid Integration",
+  "description": "Development of a 100kVA solid-state transformer enabling bidirectional power flow and seamless renewable energy integration.",
+  "category": "Solid-State Transformers",
+  "coverImage": "",
+  "images": [],
+  "fullDescription": "This flagship project focused on developing a solid-state transformer (SST) capable of replacing traditional line-frequency transformers while adding advanced grid support functionalities. The SST enables bidirectional power flow, voltage regulation, and reactive power compensation.\n\n## Architecture\n\nThe SST employs a three-stage architecture:\n1. AC-DC rectifier stage with active front-end\n2. Isolated DC-DC converter with high-frequency transformer\n3. DC-AC inverter stage for load-side voltage synthesis\n\n## Innovation Highlights\n\n- Custom-designed high-frequency transformer operating at 20kHz\n- Dual-active-bridge (DAB) converter for galvanic isolation\n- Advanced thermal management using liquid cooling\n- Grid-forming inverter capability for microgrid applications\n\n## Performance Metrics\n\nThe prototype demonstrated excellent performance across various operating conditions, including unity power factor operation, voltage sag compensation, and seamless transition between grid-connected and islanded modes.",
+  "technologies": ["DAB Converter", "High-Frequency Transformer", "Grid-Forming Control", "DSP", "GaN Devices", "Liquid Cooling", "FEA Analysis"],
+  "highlights": [
+    "97.8% overall efficiency",
+    "Bidirectional power flow capability",
+    "Grid-forming and grid-following modes",
+    "80% weight reduction vs traditional transformer",
+    "Real-time power quality improvement"
+  ],
+  "githubUrl": "",
+  "liveUrl": "",
+  "documentationUrl": "",
+  "year": "2024",
+  "client": "Smart Grid Research Initiative",
+  "duration": "18 months",
+  "role": "Principal Engineer",
+  "featured": true,
+  "order": 2,
+  "publishDate": "2024-08-20",
+  "draft": false
+}
