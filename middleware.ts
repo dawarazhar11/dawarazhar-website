@@ -18,7 +18,7 @@ function isAllowedPath(pathname: string): boolean {
   return ALWAYS_ALLOWED_PATHS.some(p => pathname.startsWith(p))
 }
 
-export async function middleware(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Add the pathname to headers for server components to use
@@ -30,20 +30,14 @@ export async function middleware(request: NextRequest) {
     return response
   }
 
-  // Check maintenance mode via internal API (Edge-compatible)
-  try {
-    const maintenanceCheckUrl = new URL('/api/maintenance', request.url)
-    const maintenanceResponse = await fetch(maintenanceCheckUrl)
-    const data = await maintenanceResponse.json()
+  // Check maintenance mode via environment variable
+  // Set MAINTENANCE_MODE=true to enable maintenance mode
+  const maintenanceEnabled = process.env.MAINTENANCE_MODE === 'true'
 
-    if (data.enabled) {
-      const url = request.nextUrl.clone()
-      url.pathname = '/coming-soon'
-      return NextResponse.redirect(url)
-    }
-  } catch (error) {
-    // If check fails, allow through to avoid blocking site
-    console.error('[Middleware] Maintenance check failed:', error)
+  if (maintenanceEnabled) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/coming-soon'
+    return NextResponse.redirect(url)
   }
 
   return response
