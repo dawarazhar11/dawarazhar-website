@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
@@ -12,16 +15,18 @@ interface PostCardProps {
 }
 
 export function PostCard({ post, showEdit = false }: PostCardProps) {
+  const [imageError, setImageError] = useState(false)
   const hasValidImage = post.image && !post.image.startsWith('data:') && post.image.length < 500
 
   return (
     <Card className="h-full flex flex-col hover:shadow-lg transition-shadow overflow-hidden">
       <Link href={`/posts/${post.slug}`} className="relative h-40 sm:h-48 overflow-hidden bg-muted flex items-center justify-center">
-        {hasValidImage ? (
+        {hasValidImage && !imageError ? (
           <img
             src={post.image}
             alt={post.title}
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            onError={() => setImageError(true)}
           />
         ) : (
           <div className="flex flex-col items-center justify-center text-muted-foreground">

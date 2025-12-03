@@ -172,7 +172,7 @@ export default function ContactPage() {
           <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
             <div
               className="calendly-inline-widget"
-              data-url="https://calendly.com/dawarazhar/30min?hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a1a&primary_color=3b82f6"
+              data-url="https://calendly.com/mdawar-azhar/30min?hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a1a&primary_color=3b82f6"
               style={{ minWidth: "320px", height: "630px" }}
             />
           </div>

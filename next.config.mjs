@@ -57,12 +57,12 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://platform.twitter.com https://gist.github.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://platform.twitter.com https://gist.github.com https://assets.calendly.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com",
               "img-src 'self' data: https: http:",
               "font-src 'self' https://fonts.gstatic.com",
-              "frame-src 'self' https://www.youtube.com https://codepen.io",
-              "connect-src 'self'",
+              "frame-src 'self' https://www.youtube.com https://codepen.io https://calendly.com",
+              "connect-src 'self' https://calendly.com",
               "media-src 'self' https:",
             ].join('; ')
           }
